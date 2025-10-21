@@ -1,0 +1,12 @@
+{
+  "name": "Football Data Multi",
+  "description": "Bekijk standen, live- en geplande wedstrijden van meerdere competities via Football-Data.org.",
+  "domain": "football_data_multi",
+  "country": "NL",
+  "render_readme": true,
+  "content_in_root": false,
+  "filename": "football-data-multi",
+  "iot_class": "cloud_polling",
+  "integration_type": "integration",
+  "homeassistant": "2024.6.0"
+}
