@@ -18,7 +18,7 @@ Bekijk **standen**, **live wedstrijden** en **geplande wedstrijden** van meerder
 1. Open HACS → *Integraties*  
 2. Klik rechtsboven op **⋮ → Aangepaste repository toevoegen**
 3. Vul in:
-   - **Repository URL**: `https://github.com/<jouw-gebruikersnaam>/football-data-multi`
+   - **Repository URL**: `https://github.com/rikkie80/football-data-multi`
    - **Categorie**: *Integratie*
 4. Klik **Toevoegen** → vervolgens **Downloaden**
 5. Herstart Home Assistant
