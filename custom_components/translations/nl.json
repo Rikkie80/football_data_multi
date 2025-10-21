@@ -1,1 +1,33 @@
-
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configureer Football Data Multi",
+        "description": "Voer je API token in en selecteer de competities die je wilt volgen.\n\n{info}",
+        "data": {
+          "api_token": "API Token",
+          "competitions": "Competities"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ongeldig API token. Controleer je token op football-data.org",
+      "cannot_connect": "Kan geen verbinding maken met de API",
+      "unknown": "Onbekende fout opgetreden"
+    },
+    "abort": {
+      "already_configured": "Deze API token is al geconfigureerd"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wijzig competities",
+        "description": "Pas de competities aan die je wilt volgen.\n\n{info}\n\nDe integratie wordt automatisch herladen na het opslaan.",
+        "data": {
+          "competitions": "Competities"
+        }
+      }
+    }
+  }
+}
