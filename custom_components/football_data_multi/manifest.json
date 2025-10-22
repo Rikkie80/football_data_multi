@@ -3,7 +3,7 @@
     "name": "Football Data Multi",
     "version": "1.0.0",
     "documentation": "https://www.football-data.org/",
-    "issue_tracker": "https://github.com/yourusername/football-data-multi/issues",
+    "issue_tracker": "https://github.com/rikkie80/football-data-multi/issues",
     "requirements": ["aiohttp"],
     "codeowners": ["@rikkie80"],
     "config_flow": true,
