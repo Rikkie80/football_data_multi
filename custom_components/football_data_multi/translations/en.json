@@ -1,0 +1,33 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Football Data Multi",
+        "description": "Enter your API token and select the competitions you want to follow.\n\n{info}",
+        "data": {
+          "api_token": "API Token",
+          "competitions": "Competitions"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API token. Check your token at football-data.org",
+      "cannot_connect": "Cannot connect to the API",
+      "unknown": "Unknown error occurred"
+    },
+    "abort": {
+      "already_configured": "This API token is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Modify competitions",
+        "description": "Adjust the competitions you want to follow.\n\n{info}\n\nThe integration will automatically reload after saving.",
+        "data": {
+          "competitions": "Competitions"
+        }
+      }
+    }
+  }
+}
