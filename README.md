@@ -3,12 +3,12 @@
 Bekijk **standen**, **live wedstrijden** en **geplande wedstrijden** van meerdere competities via [Football-Data.org](https://www.football-data.org/).
 
 ## ✨ Functies
-- Ondersteunt meerdere competities tegelijk (bijv. Eredivisie, Premier League, Bundesliga)
+- Ondersteunt meerdere competities tegelijk (bijv. Eredivisie, Champions League, Premier League, Bundesliga)
 - Sensors voor:
   - Stand (`_stand`)
   - Volgende wedstrijd (`_next`)
   - Live wedstrijden (`_live`)
-- Werkt met de gratis Football-Data API
+- Getest met de gratis Football-Data API. Live scores hebben met de gratis API vertraging en het aantal requests is gelimiteerd. Waarschijnlijk werkt dit beter met een betaalde API.
 - Volledig compatibel met Home Assistant en HACS
 
 ---
@@ -25,17 +25,8 @@ Bekijk **standen**, **live wedstrijden** en **geplande wedstrijden** van meerder
 6. Ga naar **Instellingen → Apparaten & Diensten → Integratie toevoegen**
 7. Zoek op: `Football Data Multi`
 8. Voer je [Football-Data.org API token](https://www.football-data.org/client/register) in  
-   en selecteer de competities (bijv. `DED`, `PL`, `BL1`)
+   en selecteer de competities.
 
----
-
-## 🧠 Voorbeeld sensoren
-
-```yaml
-sensor.eredivisie_stand
-sensor.eredivisie_next
-sensor.eredivisie_live
-```
 ---
 
 ## Lovelace Card
