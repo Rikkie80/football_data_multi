@@ -54,27 +54,36 @@ cards:
       type: markdown
       content: >
         ## ⚽ Live Wedstrijden
-
-        {% set matches =
-        state_attr('sensor.eredivisie_nederland_live_wedstrijden', 'matches') |
-        default([]) %}
-
+      
+        {% set matches = state_attr('sensor.eredivisie_nederland_live_wedstrijden', 'matches') | default([]) %}
+      
         {% if matches | length > 0 %}
+        <table style="width:100%; border-collapse: collapse; font-size:3px; color: var(--primary-text-color);">
+          <tr style="text-align:left; border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <th>Wedstrijd</th>
+            <th style="text-align:center;">Score</th>
+            <th style="text-align:center;">Status</th>
+          </tr>
           {% for match in matches %}
-        **{{ match.home_team }} - {{ match.away_team }}**  
-
-        Score: {{ match.score_home | default('0') }} - {{ match.score_away |
-        default('0') }}  
-
-        Status: {{ match.status }} {% if match.minute %}({{ match.minute }}'){%
-        endif %}
-
-        ---
-          {% endfor %}
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); vertical-align: middle;">
+              <td>
+                <img src="{{ match.thuisteam_crest }}" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;">
+                {{ match.thuisteam }}
+                <b>-</b>
+                <img src="{{ match.uitteam_crest }}" style="width:14px; height:14px; vertical-align:middle; margin:0 4px;">
+                {{ match.uitteam }}
+              </td>
+              <td style="text-align:center;">
+                {{ match.score_home | default('0') }} - {{ match.score_away | default('0') }}
+              </td>
+              <td style="text-align:center;">
+                {{ match.status }} {% if match.minute %}({{ match.minute }}'){% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
         {% else %}
-
-        *Geen live wedstrijden*
-
+          <span style="font-size:10px;">Geen live wedstrijden</span>
         {% endif %}
   - type: markdown
     content: >
