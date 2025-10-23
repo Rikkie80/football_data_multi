@@ -47,30 +47,30 @@ cards:
         ## ⚽ Live Wedstrijden
       
         {% set matches = state_attr('sensor.eredivisie_nederland_live_wedstrijden', 'matches') | default([]) %}
-      
         {% if matches | length > 0 %}
-        <table style="width:100%; border-collapse: collapse; font-size:3px; color: var(--primary-text-color);">
-          <tr style="text-align:left; border-bottom: 1px solid rgba(255,255,255,0.2);">
-            <th>Wedstrijd</th>
-            <th style="text-align:center;">Score</th>
-            <th style="text-align:center;">Status</th>
-          </tr>
-          {% for match in matches %}
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); vertical-align: middle;">
-              <td>
-                <img src="{{ match.thuisteam_crest }}" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;">
-                {{ match.thuisteam }}
-                <b>-</b>
-                <img src="{{ match.uitteam_crest }}" style="width:14px; height:14px; vertical-align:middle; margin:0 4px;">
-                {{ match.uitteam }}
-              </td>
-              <td style="text-align:center;">
-                {{ match.score_home | default('0') }} - {{ match.score_away | default('0') }}
-              </td>
-              <td style="text-align:center;">
-                {{ match.status }} {% if match.minute %}({{ match.minute }}'){% endif %}
-              </td>
+          <table style="width:100%; border-collapse:
+          collapse; font-size:3px; color: var(--primary-text-color);">
+            <tr style="text-align:left; border-bottom: 1px solid rgba(255,255,255,0.2);">
+              <th>Wedstrijd</th>
+              <th style="text-align:center;">Score</th>
+              <th style="text-align:center;">Status</th>
             </tr>
+            {% for match in matches %}
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); vertical-align: middle;">
+                <td>
+                  <img src="{{ match.thuisteam_crest }}" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;">
+                  {{ match.thuisteam }}
+                  <b>-</b>
+                  <img src="{{ match.uitteam_crest }}" style="width:14px; height:14px; vertical-align:middle; margin:0 4px;">
+                  {{ match.uitteam }}
+                </td>
+                <td style="text-align:center;">
+                  {{ match.score_home | default('0') }} - {{ match.score_away | default('0') }}
+                </td>
+                <td style="text-align:center;">
+                  {{ match.status }} {% if match.minute %}({{ match.minute }}'){% endif %}
+                </td>
+              </tr>
             {% endfor %}
           </table>
         {% else %}
@@ -79,34 +79,22 @@ cards:
   - type: markdown
     content: >
       <div style="padding: 16px; text-align: center;">
-
-
       {% set next = states('sensor.eredivisie_nederland_volgende_wedstrijd') %}
-
       {% if next != 'Geen gepland' and next != 'unavailable' and next !=
       'unknown' %}
-
-
       <h2 style="margin: 0;">📅 Volgende Wedstrijd</h2>
-
       {% set home = state_attr('sensor.eredivisie_nederland_volgende_wedstrijd',
       'thuisteam') %}
-
       {% set away = state_attr('sensor.eredivisie_nederland_volgende_wedstrijd',
       'uitteam') %}
-
       {% set home_crest =
       state_attr('sensor.eredivisie_nederland_volgende_wedstrijd',
       'thuisteam_crest') %}
-
       {% set away_crest =
       state_attr('sensor.eredivisie_nederland_volgende_wedstrijd',
       'uitteam_crest') %}
-
       {% set datum =
       state_attr('sensor.eredivisie_nederland_volgende_wedstrijd', 'datum') %}
-
-
       <div style="display: flex; justify-content: space-around; align-items:
       center; margin: 20px 0;">
         <div>
@@ -117,47 +105,29 @@ cards:
           </b>
         </div>
       </div>
-
       <p style="color: var(--secondary-text-color);">
-
       {% set dag_eng = as_timestamp(datum) | timestamp_custom('%A', true) %}
-
       {% set maand_eng = as_timestamp(datum) | timestamp_custom('%B', true) %}
-
-
       {% set dagen = {'Monday': 'Maandag', 'Tuesday': 'Dinsdag', 'Wednesday':
       'Woensdag', 'Thursday': 'Donderdag', 'Friday': 'Vrijdag', 'Saturday':
       'Zaterdag', 'Sunday': 'Zondag'} %}
-
       {% set maanden = {'January': 'Januari', 'February': 'Februari', 'March':
       'Maart', 'April': 'April', 'May': 'Mei', 'June': 'Juni', 'July': 'Juli',
       'August': 'Augustus', 'September': 'September', 'October': 'Oktober',
       'November': 'November', 'December': 'December'} %}
 
       {% set dag_nl = dagen[dag_eng] | default(dag_eng) %}
-
       {% set maand_nl = maanden[maand_eng] | default(maand_eng) %}
 
       🕐 {{ dag_nl }} {{ as_timestamp(datum) | timestamp_custom('%d', true) }}
       {{ maand_nl }} {{ as_timestamp(datum) | timestamp_custom('%Y om %H:%M',
       true) }}
-
       📍 Ronde {{ state_attr('sensor.eredivisie_nederland_volgende_wedstrijd',
-      'matchday') | default('?') }}
-
-      </p>
-
-
+      'matchday') | default('?') }}</p>
       {% else %}
-
-      <h2>📅 Volgende Wedstrijd</h2>
-
-      <p style="color: var(--secondary-text-color);">Geen geplande wedstrijden
-      gevonden</p>
-
+        <h2>📅 Volgende Wedstrijd</h2>
+        <p style="color: var(--secondary-text-color);">Geen geplande wedstrijden gevonden</p>
       {% endif %}
-
-
       </div>
   - type: custom:flex-table-card
     title: 🏆 Eredivisie Stand
