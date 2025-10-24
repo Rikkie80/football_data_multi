@@ -29,7 +29,11 @@ Bekijk **standen**, **live wedstrijden** en **geplande wedstrijden** van meerder
 
 ---
 
-## Lovelace Card
+## Dashboard Card
+gebruikt de volgende custom cards:
+- Flex-table-card
+- Card-mod
+
 
 <img src="https://github.com/user-attachments/assets/b72bbd59-18f9-4e3d-b6ab-ccaaeb274f99" width="300">
 
